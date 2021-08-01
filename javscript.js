@@ -1,7 +1,9 @@
 let qtdCartas = Number(prompt("Com quantas cartas deseja jogar?"));
+let numerodejogadas=0;
 let cartas = [];
 let cartassorteadas = [];
 let verificar = [];
+let acertos = 0;
 
 //prompt até o usuario selecionar o numero de cartas
 while (qtdCartas < 4 || qtdCartas > 14 || qtdCartas % 2 !== 0) {
@@ -69,9 +71,19 @@ function selecionarcarta(selecionado){
                 setTimeout(virarcarta,1000,primeiracarta);
                 setTimeout(virarcarta,1000,segundacarta);
             }
-            
+            else{
+                acertos++; 
+            }
             primeiracarta="";
             segundacarta="";
         }
+        numerodejogadas++;
+        setTimeout(checarfimdejogo,500); 
+    }
+}
+
+function checarfimdejogo(){
+    if(acertos === qtdCartas/2){
+        alert(`Você ganhou em ${numerodejogadas} jogadas!`)
     }
 }
