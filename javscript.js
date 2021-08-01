@@ -1,7 +1,7 @@
 let qtdCartas = Number(prompt("Com quantas cartas deseja jogar?"));
-let cont;
 let cartas = [];
 let cartassorteadas = [];
+let verificar = [];
 
 //prompt até o usuario selecionar o numero de cartas
 while (qtdCartas < 4 || qtdCartas > 14 || qtdCartas % 2 !== 0) {
@@ -52,8 +52,26 @@ function distribuircartas(){
     }
 }
 
+let primeiracarta= "";
+let segundacarta = "";
 
-function selecionarcarta(selecionado){
+function virarcarta(selecionado){
     selecionado.classList.toggle("selecionado");
 }
 
+function selecionarcarta(selecionado){
+    if(selecionado.classList.contains("selecionado") === false){
+        virarcarta(selecionado);
+        if(primeiracarta === ""){primeiracarta=selecionado;}
+        else {
+            segundacarta=selecionado;
+            if(primeiracarta.innerHTML !== segundacarta.innerHTML){
+                setTimeout(virarcarta,1000,primeiracarta);
+                setTimeout(virarcarta,1000,segundacarta);
+            }
+            
+            primeiracarta="";
+            segundacarta="";
+        }
+    }
+}
