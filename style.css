@@ -11,6 +11,27 @@ body{
 }
 
 .titulo h1{
+    font-family: Roboto;
     font-weight: 700;
     font-size: 56px;
+}
+
+.caixa-cartas{
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.carta{
+    width: 120px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #A7E9AF;
+}
+
+img{
+    height: 110px;
 }
