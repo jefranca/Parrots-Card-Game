@@ -23,14 +23,36 @@ body{
     margin: 0 auto;
 }
 
-.carta{
-    width: 120px;
-    height: 150px;
+.card{
+    width: 132px;
+    height: 165px;
+    position: relative;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+.face{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #A7E9AF;
 }
+.front-face {
+    transform: rotateY(180deg);
+  }
+
+  .selecionado .front-face {
+    transform: rotateY(0deg);
+  }
+
+  .selecionado .back-face {
+    transform: rotateY(-180deg);
+  }
 
 img{
     height: 110px;
